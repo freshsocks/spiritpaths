@@ -68,17 +68,17 @@ void draw() {
   output1.blend(prevDiff, 0, 0, video.width, video.height, 0, 0, video.width, video.height, BLEND_MODE);
 
 
-// Messing around with inverting light/dark...
-//  opencv.loadImage(output1);
-//  opencv.invert();
-//  opencv.adaptiveThreshold(300, 1);
-//
-//  PImage output = opencv.getSnapshot();
-//  image(output, 0, 0 );
-  
+  // Messing around with inverting light/dark...
+  //  opencv.loadImage(output1);
+  //  opencv.invert();
+  //  opencv.adaptiveThreshold(300, 1);
+  //
+  //  PImage output = opencv.getSnapshot();
+  //  image(output, 0, 0 );
+
   image(output1, 0, 0 );
-  
-  
+
+
   // Save frame & diff output for next frame cycle
   prevFrame = orig;
   prevDiff = output1;
@@ -117,12 +117,18 @@ void keyPressed() {
     } else if (key == 's') {
       BLUR_FX--;
       println("BLUR_FX: ", BLUR_FX);
+    } else if (key == '1') {
+      BLEND_MODE = LIGHTEST;
+      println("Blend Mode: Lightest");
+    } else if (key == '2') {
+      BLEND_MODE = SCREEN;
+      println("Blend Mode: Screen");
     }
-}
+  }
   // B : toggle background capture
   // E : toggle erosion
   // D : toggle dilation
-  // 1 : blend mode 1: LIGHTNESS
+  // 1 : blend mode 1: LIGHTaNESS
   // 2 : blend mode 2: SCREEN
 }
 
